@@ -1,28 +1,32 @@
 {
-  "name": "grapesjs-plugin-s3",
-  "version": "0.1.4",
-  "description": "Enable s3 uploader inside the Asset Manager",
-  "main": "dist/grapesjs-plugin-s3.min.js",
+  "name": "grapesjs-plugin-button-event",
+  "version": "0.0.4",
+  "description": "Enables grapesjs to publish events on new button clicks.",
+  "main": "dist/grapesjs-plugin-button-event.min.js",
   "scripts": {
     "lint": "eslint src",
     "build": "npm run v:patch && webpack --env.production",
-    "build:css": "node-sass src/style/main.scss dist/grapesjs-plugin-s3.css",
+    "build:css": "node-sass src/style/main.scss dist/grapesjs-plugin-button-event.css",
     "v:patch": "npm version --no-git-tag-version patch",
     "start": "webpack-dev-server --open --progress --colors & npm run build:css -- -w"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/chaitanya11/grapesjs-plugin-s3.git"
+    "url": "git+https://github.com/chaitanya11/grapesjs-plugin-button-event.git"
   },
   "keywords": [
     "grapesjs",
     "plugin",
-    "S3",
-    "upload",
-    "asset"
+    "button",
+    "event",
+    "publish"
   ],
   "author": "Chaitanya Garikipati",
-  "license": "BSD-3-Clause",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/chaitanya11/grapesjs-plugin-button-event/issues"
+  },
+  "homepage": "https://github.com/chaitanya11/grapesjs-plugin-button-event#readme",
   "babel": {
     "presets": [
       "env"
@@ -46,7 +50,5 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
-  "dependencies": {
-    "aws-sdk": "^2.315.0"
-  }
+  "dependencies": {}
 }

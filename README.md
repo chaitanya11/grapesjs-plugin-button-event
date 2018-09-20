@@ -1,7 +1,8 @@
-# [GrapesJS S3](http://grapesjs.com/demo.html)
+# [GrapesJS Filestack](http://grapesjs.com/demo.html)
 
 This plugin replaces the default file uploader with the one from Filestack
 
+Demo: http://grapesjs.com/demo.html
 
 <p align="center"><img src="http://grapesjs.com/img/screen-fs.jpg" alt="GrapesJS" width="500" align="center"/></p>
 <br/>
@@ -11,7 +12,7 @@ This plugin replaces the default file uploader with the one from Filestack
 ## Summary
 
 * Plugin
-  * Name: `gjs-plugin-s3`
+  * Name: `gjs-plugin-button-event`
   * Options:
       * `key` Filestack's API key (**required**)
       * `btnEl` Custom button element which triggers Filestack modal
@@ -25,7 +26,7 @@ This plugin replaces the default file uploader with the one from Filestack
 
 ## Download
 
-* `npm i grapesjs-plugin-s3`
+* `npm i grapesjs-plugin-button-event`
 
 
 
@@ -33,19 +34,19 @@ This plugin replaces the default file uploader with the one from Filestack
 
 ```html
 <link href="path/to/grapes.min.css" rel="stylesheet"/>
-<link href="path/to/grapesjs-plugin-filestack.css" rel="stylesheet"/>
+<link href="path/to/grapesjs-plugin-button-event.css" rel="stylesheet"/>
 
 <script src="path/to/grapes.min.js"></script>
-<script src="path/to/grapesjs-plugin-filestack.min.js"></script>
+<script src="path/to/grapesjs-plugin-button-event.min.js"></script>
 
 <div id="gjs"></div>
 
 <script type="text/javascript">
   var editor = grapesjs.init({
       container : '#gjs',
-      plugins: ['gjs-plugin-filestack'],
+      plugins: ['gjs-plugin-button-event'],
       pluginsOpts: {
-        'gjs-plugin-filestack': {/* ...options */}
+        'gjs-plugin-button-event': {/* ...options */}
       }
   });
 </script>
@@ -58,8 +59,8 @@ This plugin replaces the default file uploader with the one from Filestack
 Clone the repository
 
 ```sh
-$ git clone https://github.com/chaitanya11/grapesjs-plugin-s3.git
-$ cd grapesjs-plugin-s3
+$ git clone https://github.com/chaitanya11/grapesjs-plugin-button-event.git
+$ cd grapesjs-plugin-button-event
 ```
 
 Install it

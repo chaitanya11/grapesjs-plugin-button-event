@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <title>GrapesJS S3 images editor</title>
   <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet">
-  <link href="dist/grapesjs-plugin-s3.css" rel="stylesheet">
+  <link href="dist/grapesjs-plugin-button-event.css" rel="stylesheet">
   <script src="https://unpkg.com/grapesjs"></script>
-  <script src="dist/grapesjs-plugin-s3.min.js"></script>
+  <script src="dist/grapesjs-plugin-button-event.min.js"></script>
   <style>
     body, html{ height: 100%; margin: 0;}
     </style>
@@ -38,15 +38,17 @@
       container: '#gjs',
       fromElement: true,
 
-      plugins: ['gjs-plugin-s3'],
+      plugins: ['gjs-plugin-button-event'],
       pluginsOpts: {
-        'gjs-plugin-s3': {
-          imgFormats: ["png", "jpeg", "jpg"],
-          bucketName: "bodylesscms",
-          prefix: "content/img/",
-          accessKeyId: '<AWS Access key Id>',
-          secretAccessKey: '<Aws secret access key>',
-          sessionToken: '<AWS Sessions Token>'
+        'gjs-plugin-button-event': {
+          buttons: [{
+            name: 'signOut',
+            panel: 'options',
+            eventName: 'gjs-signOut',
+            icon: 'fa fa-sign-out',
+            active: false,
+            data: { message: 'hello from gjs-plugin-button-event'}
+          }]
         }
       }
     });
