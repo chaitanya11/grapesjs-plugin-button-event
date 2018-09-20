@@ -1,13 +1,14 @@
 import grapesjs from 'grapesjs';
 import { EventEmitter } from 'events';
 
+export const eventEmitter = new EventEmitter();
 
 export default grapesjs.plugins.add('gjs-plugin-button-event', (editor, opts = {}) => {
   let c = opts;
   let config = editor.getConfig();
   let pfx = config.stylePrefix || '';
   let panelManager = editor.Panels;
-  const eventEmitter = new EventEmitter();
+  
 
   let defaults = {
 
@@ -17,7 +18,8 @@ export default grapesjs.plugins.add('gjs-plugin-button-event', (editor, opts = {
       eventName: 'gjs-sampleButtonEvent',
       icon: 'fa fa-snowflake-o',
       active: false,
-      data: { message: 'hello from gjs-plugin-button-event'}
+      data: { message: 'hello from gjs-plugin-button-event' },
+      eventEmitter: new EventEmitter()
     }],
 
     // Text for the button in case the custom one is not provided
@@ -32,15 +34,20 @@ export default grapesjs.plugins.add('gjs-plugin-button-event', (editor, opts = {
       c[name] = defaults[name];
   }
 
+  if (c.buttons.some(button => button.eventEmitter == undefined
+     | (!button.eventEmitter instanceof EventEmitter))) {
+      throw new Error('Button should have eventEmitter <EventEmitter from "events" of javascript> attribute of ');
+  }
+
   let panelModels = panelManager.getPanels();
   panelModels = panelModels.models.map((model) => model.id);
 
   if (!c.buttons.every(button => panelModels.includes(button.panel))) {
     throw new Error('panel not found');
   }
-  
+
   c.buttons.forEach(button => {
-    const buttonCommand = 'publish'+ button.name +'Event'
+    const buttonCommand = 'publish' + button.name + 'Event'
     var newButton = panelManager.addButton(button.panel, {
       id: button.name,
       className: button.icon,
@@ -48,14 +55,14 @@ export default grapesjs.plugins.add('gjs-plugin-button-event', (editor, opts = {
       attributes: { title: button.name },
       active: button.active,
     });
-  
+
     editor.Commands.add(buttonCommand, {
       run: (editor, sender) => {
-        eventEmitter.emit(button.eventName, button.data);
-        console.log('emited', button.eventName,  'event');
+        console.log(button.eventName);
+        button.eventEmitter.emit(button.eventName, button.data);
+        console.log('emited', button.eventName, 'event');
         newButton.set('active', false);
       }
     });
   });
-
 });
