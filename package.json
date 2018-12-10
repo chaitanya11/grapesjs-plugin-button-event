@@ -1,6 +1,6 @@
 {
   "name": "grapesjs-plugin-button-event",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Enables grapesjs to publish events on new button clicks.",
   "main": "dist/grapesjs-plugin-button-event.min.js",
   "scripts": {
