@@ -1,12 +1,6 @@
-# [GrapesJS Filestack](http://grapesjs.com/demo.html)
+# GrapesJS Plugin Button event
 
-This plugin replaces the default file uploader with the one from Filestack
-
-Demo: http://grapesjs.com/demo.html
-
-<p align="center"><img src="http://grapesjs.com/img/screen-fs.jpg" alt="GrapesJS" width="500" align="center"/></p>
-<br/>
-
+This plugin enables you to add button with event emitters to grapesJs panels.
 
 
 ## Summary
@@ -14,13 +8,14 @@ Demo: http://grapesjs.com/demo.html
 * Plugin
   * Name: `gjs-plugin-button-event`
   * Options:
-      * `key` Filestack's API key (**required**)
-      * `btnEl` Custom button element which triggers Filestack modal
-      * `btnText` Text for the button in case the custom one is not provided, default: `Add images`
-      * `filestackOpts` Filestack's options, default: `{accept: 'image/*', maxFiles: 10}`
-      * `onComplete` On complete upload callback, eg. `onComplete: (blobs, assets) => {...}`
-        *blobs* Array of Objects, eg. [{url:'...', filename: 'name.jpeg', ...}]
-        *assets* Array of inserted assets
+      * buttons: [{
+            name: 'buttonName',
+            panel: 'panelName',
+            eventName: 'eventName',
+            icon: 'ICON',
+            active: boolean,
+            data: { message: 'event message'}
+          }]
 
 
 
